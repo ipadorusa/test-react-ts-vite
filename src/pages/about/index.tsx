@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import Nav from "@/components/nav"
 
 export default function AboutPage() {
   const onHandleBtnApplay = () => {
@@ -7,11 +7,7 @@ export default function AboutPage() {
   return (
     <div>
       <h2>about</h2>
-      <ul>
-				<Link to="/contact"><li>contact</li></Link>
-				<Link to="/list"><li>list</li></Link>
-        <Link to="/about"><li>about</li></Link>
-			</ul>
+      <Nav />
       <div>
         <button type="button" onClick={onHandleBtnApplay} className="sri_btn_sm"><span className="sri_btn_immediately">입사지원</span></button>
       </div>
