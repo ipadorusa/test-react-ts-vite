@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react(), tsconfigPaths()],
     build: {
-      outDir: "/dist",
+      outDir: resolve(__dirname, "dist"),
       lib: {
         name: "calendar",
         entry: resolve(__dirname, "src/app.tsx"),
@@ -25,9 +25,9 @@ export default defineConfig(({ mode }) => {
         scss: {
           additionalData: `
             @use "sass:math";
-            @import "${resolve(__dirname, "src/styles")}/abstracts/_functions.scss";
-            @import "${resolve(__dirname, "src/styles")}/abstracts/_mixins.scss";
-            @import "${resolve(__dirname, "src/styles")}/abstracts/_variables.scss";
+            @import "../src/styles/abstracts/_functions.scss";
+            @import "../src/styles/abstracts/_mixins.scss";
+            @import "../src/styles/abstracts/_variables.scss";
           `,
         },
       },
