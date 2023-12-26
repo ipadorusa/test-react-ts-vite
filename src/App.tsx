@@ -11,6 +11,7 @@ import './App.css'
 
 root.render(
   <ErrorBoundary>
+    {/* <BrowserRouter basename="/group-job/calendar"> */}
     <BrowserRouter>
      <Main />
     </BrowserRouter>
