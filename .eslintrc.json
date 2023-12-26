@@ -35,11 +35,18 @@
         "namedComponents": "arrow-function"
       }
     ],
-    "react/jsx-props-no-spreading": ["warn"],
-    "jsx-a11y/label-has-associated-control": [ 2, {
-      "controlComponents": ["Checkbox"],
-      "depth": 3
-    }],
+    "react/jsx-props-no-spreading": [
+      "warn"
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "controlComponents": [
+          "Checkbox"
+        ],
+        "depth": 3
+      }
+    ],
     "react/require-default-props": "off",
     "@next/next/no-document-import-in-page": "off"
   }
