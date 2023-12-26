@@ -1,0 +1,83 @@
+/// 스크린리더 대응 숨김 텍스트
+/// @example
+///   @include sr-only;
+///
+@mixin sr-only {
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+}
+/// 스크린리더 대응 숨김 텍스트 (인라인 레벨)
+/// @example
+///   @include sr-only-inline;
+///
+@mixin sr-only-inline {
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+}
+
+/// 줄 수 별 말줄임
+/// @param {Number} $line-to-show 줄 수
+/// @example
+///   @include lineEllipsis(1);
+///   // overflow: hidden;
+///   // text-overflow: ellipsis;
+///   // white-space: nowrap;
+///
+///   @include lineEllipsis(3);
+///   // overflow: hidden;
+///   // text-overflow: ellipsis;
+///   // display: block;
+///   // display: -webkit-box;
+///   // -webkit-box-orient: vertical;
+///   // -webkit-line-clamp: 3;
+///
+@mixin lineEllipsis($line-to-show) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $line-to-show == 1 {
+    white-space: nowrap;
+  } @else {
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line-to-show;
+  }
+}
+
+/// 일반 텍스트 폰트 속성 생성
+/// @param {String|Number} $size 폰트 이름(크기)
+/// @param {STring|Number} $weight [regular] - 글꼴 굵기 (숫자, 키워드 모두 허용)
+/// @example
+///   // @include @font(20);
+///   // @include @font(20, 400);
+///   // @include @font(20, bold);
+///
+@mixin font($size, $weight: regular) {
+  @if (type-of($weight) == number ) {
+    $weight: math.div($weight, 100);
+    @if ($weight <= 5) {
+      $weight: regular;
+    }
+    @else {
+      $weight: bold;
+    }
+  }
+  font-size: #{$size}px;
+  font-weight: var(--font-weight-#{$weight});
+  line-height: var(--font#{$size}-line-height);
+  letter-spacing: var(--font#{$size}-letter-spacing);
+}

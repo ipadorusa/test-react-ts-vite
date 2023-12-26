@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./components/error/ErrorBoundary";
 import Main from "./Main";
-import "./App.css";
+import "@styles/global.scss";
 
 const container = document.getElementById("calendar-root");
 if (!container) throw new Error("Failed to find the root element");

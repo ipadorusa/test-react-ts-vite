@@ -3,8 +3,6 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-const stylesPath = resolve(__dirname, "src/styles");
-
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
@@ -13,7 +11,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react(), tsconfigPaths()],
     build: {
-      outDir: "../../../webroot/mobile/js/calendar/dist",
+      outDir: "/dist",
       lib: {
         name: "calendar",
         entry: resolve(__dirname, "src/app.tsx"),
@@ -27,9 +25,9 @@ export default defineConfig(({ mode }) => {
         scss: {
           additionalData: `
             @use "sass:math";
-            @import "${stylesPath}/abstracts/_functions.scss";
-            @import "${stylesPath}/abstracts/_mixins.scss";
-            @import "${stylesPath}/abstracts/_variables.scss";
+            @import "${resolve(__dirname, "src/styles")}/abstracts/_functions.scss";
+            @import "${resolve(__dirname, "src/styles")}/abstracts/_mixins.scss";
+            @import "${resolve(__dirname, "src/styles")}/abstracts/_variables.scss";
           `,
         },
       },
