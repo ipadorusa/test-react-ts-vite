@@ -27,6 +27,16 @@
     "prettier"
   ],
   "root": true,
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "directory": "./src",
+        "alias": {
+          "@components": "./src/components"
+        }
+      }
+    }
+  },
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [

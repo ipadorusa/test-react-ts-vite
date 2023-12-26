@@ -1,10 +1,11 @@
 import Nav from "@/components/nav";
 
-export default function ContactPage() {
+const ContactPage = () => {
   return (
     <div>
       <h2>Contact</h2>
       <Nav />
     </div>
-  )
-}
+  );
+};
+export default ContactPage;
