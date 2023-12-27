@@ -1,3 +1,131 @@
-.test {
-  color: #000;
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border: 0;
+  color: inherit;
+
+  &:disabled:not(.btn--text) {
+    border: 1px solid var(--gray40);
+    background-color: var(--gray20);
+    color: var(--gray50);
+  }
+
+  // sizes
+  &--12 {
+    @include font(12);
+  }
+  &--13 {
+    @include font(13);
+  }
+  &--14 {
+    @include font(14, bold);
+  }
+  &--24 {
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 40px;
+    height: 24px;
+    @include font(12);
+  }
+  &--32 {
+    padding-left: 8px;
+    padding-right: 8px;
+    min-width: 60px;
+    height: 32px;
+    @include font(13, 400);
+  }
+  &--40 {
+    gap: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    min-width: 80px;
+    height: 40px;
+    @include font(14);
+  }
+
+  // appearance
+  &--rectangle {
+    border-radius: 4px;
+  }
+  &--round {
+    &.btn--24 {
+      border-radius: 12px;
+    }
+    &.btn--32 {
+      border-radius: 16px;
+    }
+    &.btn--40 {
+      border-radius: 20px;
+    }
+  }
+
+  // color
+  &--primary {
+    --accent-color: var(--blue100);
+    --primary-color: var(--blue90);
+    --light-primary-color: var(--blue20);
+    --btn-text-color: var(--blue90);
+    --text-color: var(--gray120);
+  }
+  &--secondary {
+    --accent-color: var(--gray80);
+    --primary-color: var(--gray80);
+    --light-primary-color: var(--gray20);
+    --btn-text-color: var(--gray100);
+  }
+  &--teritary {
+    --text-color: var(--gray80);
+  }
+  &--indistinct {
+    --accent-color: var(--gray40);
+    --primary-color: var(--gray40);
+    --light-primary-color: var(--gray20);
+    --btn-text-color: var(--gray100);
+  }
+  &--action {
+    --accent-color: var(--coral110);
+    --primary-color: var(--coral110);
+    --light-primary-color: var(--coral20);
+    --btn-text-color: var(--coral110);
+  }
+
+  // variant
+  &--filled:not(:disabled) {
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    &:hover,
+    &:focus {
+      background-color: var(--accent-color);
+    }
+  }
+  &--outline:not(:disabled) {
+    background-color: var(--white);
+    border: 1px solid var(--primary-color);
+    color: var(--btn-text-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--light-primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+  &--text:not(:disabled) {
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  &--underline {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+  }
 }
