@@ -6,6 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    assetsInclude: ["/sb-preview/runtime.js"],
     define: {
       "process.env.NODE_ENV": JSON.stringify(mode),
     },
